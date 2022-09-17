@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:hba114_github_io_website/components/app_bar.dart';
 import 'package:hba114_github_io_website/components/background.dart';
 
@@ -28,13 +29,18 @@ class _SocialsState extends State<Socials> {
             //
             // ! Hello Text
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 60),
+              padding: EdgeInsets.symmetric(horizontal: 60),
               child: Text(
                 "Socials",
-                style: const TextStyle(
+                //! use google fonts for better look
+                style: GoogleFonts.robotoMono(
+                  color: Colors.red,
                   fontSize: 20,
-                  color: Colors.white,
                 ),
+                // style: TextStyle(
+                //   fontSize: 20,
+                //   color: Colors.white,
+                // ),
               ),
             ),
             //
@@ -76,11 +82,11 @@ class _SocialsState extends State<Socials> {
                         ),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                          child: const Text(
+                          child: Text(
                             "Github",
-                            style: TextStyle(
-                              fontSize: 20,
+                            style: GoogleFonts.robotoMono(
                               color: Colors.white,
+                              fontSize: 22,
                             ),
                           ),
                         ),
