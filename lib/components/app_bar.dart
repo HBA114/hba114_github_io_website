@@ -1,12 +1,31 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hba114_github_io_website/components/route_animations.dart';
 import 'package:hba114_github_io_website/screens/about.dart';
 import 'package:hba114_github_io_website/screens/home.dart';
 import 'package:hba114_github_io_website/screens/socials.dart';
 
-class CustomAppBar extends StatelessWidget {
+class CustomAppBar extends StatefulWidget {
   const CustomAppBar({super.key});
+
+  @override
+  State<CustomAppBar> createState() => _CustomAppBarState();
+}
+
+class _CustomAppBarState extends State<CustomAppBar> {
+  String home = "";
+  String about = "";
+  String socials = "";
+  String lang = "en";
+
+  @override
+  void initState() {
+    super.initState();
+    GetButtonNames();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +66,7 @@ class CustomAppBar extends StatelessWidget {
               // Navigator.of(context).pushReplacement(new RouteHomeAnimation());
             },
             child: Text(
-              "HOME",
+              home,
               style: GoogleFonts.robotoMono(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
@@ -65,7 +84,7 @@ class CustomAppBar extends StatelessWidget {
               // Navigator.of(context).pushReplacement(new RouteAboutAnimation());
             },
             child: Text(
-              "ABOUT",
+              about,
               style: GoogleFonts.robotoMono(
                 fontSize: 20,
                 fontWeight: FontWeight.normal,
@@ -83,7 +102,7 @@ class CustomAppBar extends StatelessWidget {
               // Navigator.pushReplacement(context, RouteSocialsAnimation());
             },
             child: Text(
-              "SOCIALS",
+              socials,
               style: GoogleFonts.robotoMono(
                 fontSize: 20,
                 fontWeight: FontWeight.normal,
@@ -92,24 +111,19 @@ class CustomAppBar extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 10),
-          //
-          //
-          // TextButton(
-          //   onPressed: () {
-          //     print("Contact");
-          //     Navigator.pushReplacementNamed(context, About.routeName);
-          //   },
-          //   child: const Text(
-          //     "CONTACT",
-          //     style: GoogleFonts.robotoMono(
-          //       fontSize: 20,
-          //       fontWeight: FontWeight.normal,
-          //       color: Color.fromARGB(255, 0, 0, 0),
-          //     ),
-          //   ),
-          // ),
         ],
       ),
     );
+  }
+
+  Future<void> GetButtonNames() async {
+    final response =
+        await rootBundle.loadString("../lib/language/buttons.json");
+    final data = jsonDecode(response);
+    setState(() {
+      home = data["Buttons"]["Home"][lang];
+      about = data["Buttons"]["About"][lang];
+      socials = data["Buttons"]["Socials"][lang];
+    });
   }
 }

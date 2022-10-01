@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hba114_github_io_website/components/app_bar.dart';
 import 'package:hba114_github_io_website/components/background.dart';
@@ -14,10 +17,20 @@ class Socials extends StatefulWidget {
 }
 
 class _SocialsState extends State<Socials> {
+  String header = "";
+  String githubInfo = "";
+  String linkedInInfo = "";
+  String lang = "en";
+
+  @override
+  void initState() {
+    super.initState();
+    GetTexts();
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-
     return Scaffold(
       body: Background(
         size,
@@ -31,7 +44,7 @@ class _SocialsState extends State<Socials> {
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 60),
               child: Text(
-                "Socials",
+                header,
                 //! use google fonts for better look
                 style: GoogleFonts.robotoMono(
                   color: Colors.white,
@@ -45,23 +58,15 @@ class _SocialsState extends State<Socials> {
               "Github",
               "https://github.com/HBA114",
               "https://avatars.githubusercontent.com/u/55455410?v=4",
-              "You can follow my work from github.",
+              githubInfo,
             ),
 
             SocialButtonWithInfo(
               "LinkedIn",
               "https://www.linkedin.com/in/hasan-basri-ayhaner-9b2452228/",
               "https://media-exp1.licdn.com/dms/image/C4D03AQERq6NQ_vMeWw/profile-displayphoto-shrink_800_800/0/1651933832695?e=1669852800&v=beta&t=JfqlHrFTOME_QgPe_owUEYzC6t4mBr0iY6GiPa5krf0",
-              "You can reach me via LinkedIn.",
+              linkedInInfo,
             ),
-
-            //! Email button should open e-mail app and create a mail to given address
-            // SocialButtonWithInfo(
-            //   "E-Mail",
-            //   "hbasriayhaner114@gmail.com",
-            //   "https://avatars.githubusercontent.com/u/55455410?v=4",
-            //   "You can reach me via E-Mail.",
-            // ),
           ],
         ),
       ),
@@ -137,5 +142,16 @@ class _SocialsState extends State<Socials> {
         ),
       ),
     );
+  }
+
+  Future<void> GetTexts() async {
+    final String response =
+        await rootBundle.loadString("../lib/language/page_texts.json");
+    // print(response);
+    final data = jsonDecode(response);
+    header = data["SocialsTexts"]["Header"][lang];
+    githubInfo = data["SocialsTexts"]["GithubText"][lang];
+    linkedInInfo = data["SocialsTexts"]["LinkedInText"][lang];
+    setState(() {});
   }
 }

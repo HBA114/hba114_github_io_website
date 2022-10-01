@@ -1,0 +1,16 @@
+{
+    "Buttons": {
+        "Home": {
+            "tr": "Ana Sayfa",
+            "en": "Home"
+        },
+        "About": {
+            "tr": "Hakkımda",
+            "en": "About"
+        },
+        "Socials": {
+            "tr": "Sosyal Medya",
+            "en": "Socials"
+        }
+    }
+}

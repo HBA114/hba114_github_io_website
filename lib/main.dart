@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Hasan Basri Ayhaner',
       theme: ThemeData.dark(),
       routes: {
         Home.routeName: (BuildContext context) => new Home(),

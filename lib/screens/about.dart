@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hba114_github_io_website/components/app_bar.dart';
 import 'package:hba114_github_io_website/components/background.dart';
@@ -12,17 +15,19 @@ class About extends StatefulWidget {
 }
 
 class _AboutState extends State<About> {
+  String header = "";
+  String paragraph = "";
+  String lang = "en";
+
+  @override
+  void initState() {
+    super.initState();
+    GetTexts();
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-
-    // ignore: prefer_interpolation_to_compose_strings
-    String aboutText = "      Hi I'm Hasan Basri Ayhaner. I'm a Computer Engineering student." +
-        " I am using Flutter for creating Android, Desktop and Web applications." +
-        " I made my first web project with flutter and this web application is built with flutter too." +
-        " Now i am working on graduation project with ASP.NET and ReactJS. I am developing an" +
-        " E-Commerce Web Application with Prediction algorithms such as Appriori algorithm from Association Rules." +
-        " I'm also a Python developer and Python is my favorite programming language.";
 
     return Scaffold(
       body: Background(
@@ -38,7 +43,7 @@ class _AboutState extends State<About> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 60),
               child: Text(
-                "About Me",
+                header,
                 style: GoogleFonts.robotoMono(
                   fontSize: 20,
                   color: Colors.white,
@@ -52,7 +57,7 @@ class _AboutState extends State<About> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 60),
               child: Text(
-                aboutText,
+                paragraph,
                 style: GoogleFonts.robotoMono(
                   fontSize: 18,
                   color: Colors.white,
@@ -63,5 +68,15 @@ class _AboutState extends State<About> {
         ),
       ),
     );
+  }
+
+  Future<void> GetTexts() async {
+    final String response =
+        await rootBundle.loadString("../lib/language/page_texts.json");
+    final data = jsonDecode(response);
+    setState(() {
+      header = data["AboutTexts"]["Header"][lang];
+      paragraph = data["AboutTexts"]["Paragraph"][lang];
+    });
   }
 }
