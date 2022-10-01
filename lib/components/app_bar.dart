@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:hba114_github_io_website/components/route_animations.dart';
 import 'package:hba114_github_io_website/screens/about.dart';
 import 'package:hba114_github_io_website/screens/home.dart';
@@ -45,9 +46,9 @@ class CustomAppBar extends StatelessWidget {
               Navigator.pushReplacementNamed(context, Home.routeName);
               // Navigator.of(context).pushReplacement(new RouteHomeAnimation());
             },
-            child: const Text(
+            child: Text(
               "HOME",
-              style: TextStyle(
+              style: GoogleFonts.robotoMono(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
                 color: Color.fromARGB(255, 0, 0, 0),
@@ -63,9 +64,9 @@ class CustomAppBar extends StatelessWidget {
               Navigator.pushReplacementNamed(context, About.routeName);
               // Navigator.of(context).pushReplacement(new RouteAboutAnimation());
             },
-            child: const Text(
+            child: Text(
               "ABOUT",
-              style: TextStyle(
+              style: GoogleFonts.robotoMono(
                 fontSize: 20,
                 fontWeight: FontWeight.normal,
                 color: Color.fromARGB(255, 0, 0, 0),
@@ -81,9 +82,9 @@ class CustomAppBar extends StatelessWidget {
               Navigator.pushReplacementNamed(context, Socials.routeName);
               // Navigator.pushReplacement(context, RouteSocialsAnimation());
             },
-            child: const Text(
+            child: Text(
               "SOCIALS",
-              style: TextStyle(
+              style: GoogleFonts.robotoMono(
                 fontSize: 20,
                 fontWeight: FontWeight.normal,
                 color: Color.fromARGB(255, 0, 0, 0),
@@ -100,7 +101,7 @@ class CustomAppBar extends StatelessWidget {
           //   },
           //   child: const Text(
           //     "CONTACT",
-          //     style: TextStyle(
+          //     style: GoogleFonts.robotoMono(
           //       fontSize: 20,
           //       fontWeight: FontWeight.normal,
           //       color: Color.fromARGB(255, 0, 0, 0),

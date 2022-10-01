@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:hba114_github_io_website/components/app_bar.dart';
 import 'package:hba114_github_io_website/components/background.dart';
 
@@ -27,7 +28,8 @@ class _HomeState extends State<Home> {
         "I'm developing ASP.NET Core backend applications using Layered Architecture. " +
         "I'm interested with Artificial Intelligence and Backend projects. Also i'm learning Java Spring Boot applications. " +
         "I'm using BTK Academy, Udemy, YouTube platforms etc. for learning and tracking technologies. " +
-        "";
+        "Check out About page for more information or Socials page for more details about projects and" +
+        " my social media.";
 
     return Scaffold(
       body: Background(
@@ -44,7 +46,7 @@ class _HomeState extends State<Home> {
               padding: const EdgeInsets.symmetric(horizontal: 60),
               child: Text(
                 helloTextEn,
-                style: const TextStyle(
+                style: GoogleFonts.robotoMono(
                   fontSize: 20,
                   color: Colors.white,
                 ),
@@ -57,7 +59,7 @@ class _HomeState extends State<Home> {
               padding: const EdgeInsets.symmetric(horizontal: 60),
               child: Text(
                 homeTextEn,
-                style: const TextStyle(
+                style: GoogleFonts.robotoMono(
                   fontSize: 18,
                   color: Colors.white,
                 ),

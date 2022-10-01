@@ -34,69 +34,106 @@ class _SocialsState extends State<Socials> {
                 "Socials",
                 //! use google fonts for better look
                 style: GoogleFonts.robotoMono(
-                  color: Colors.red,
+                  color: Colors.white,
                   fontSize: 20,
                 ),
-                // style: TextStyle(
-                //   fontSize: 20,
-                //   color: Colors.white,
-                // ),
               ),
             ),
-            //
-            //
 
             //! Button for social
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: InkWell(
-                borderRadius: BorderRadius.circular(10),
-                onTap: () async {
-                  await launchUrl(Uri.parse("https://github.com/hba114"));
-                },
-                child: Container(
-                  height: 80,
-                  decoration: BoxDecoration(
-                      color: Colors.grey,
-                      borderRadius: BorderRadius.circular(20)),
-                  child: Center(
-                    heightFactor: 1,
-                    widthFactor: 1,
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                          child: CircleAvatar(
-                            radius: 30,
-                            child: Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(50),
-                                image: const DecorationImage(
-                                  image: NetworkImage(
-                                      "https://avatars.githubusercontent.com/u/55455410?v=4"),
-                                ),
-                              ),
-                            ),
-                          ),
+            SocialButtonWithInfo(
+              "Github",
+              "https://github.com/HBA114",
+              "https://avatars.githubusercontent.com/u/55455410?v=4",
+              "You can follow my work from github.",
+            ),
+
+            SocialButtonWithInfo(
+              "LinkedIn",
+              "https://www.linkedin.com/in/hasan-basri-ayhaner-9b2452228/",
+              "https://media-exp1.licdn.com/dms/image/C4D03AQERq6NQ_vMeWw/profile-displayphoto-shrink_800_800/0/1651933832695?e=1669852800&v=beta&t=JfqlHrFTOME_QgPe_owUEYzC6t4mBr0iY6GiPa5krf0",
+              "You can reach me via LinkedIn.",
+            ),
+
+            //! Email button should open e-mail app and create a mail to given address
+            // SocialButtonWithInfo(
+            //   "E-Mail",
+            //   "hbasriayhaner114@gmail.com",
+            //   "https://avatars.githubusercontent.com/u/55455410?v=4",
+            //   "You can reach me via E-Mail.",
+            // ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  SocialButtonWithInfo(
+      String socialName, String link, String imageLink, String infoText) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: <Widget>[
+        SocialButton(
+          socialName,
+          link,
+          imageLink,
+        ),
+        Text(
+          infoText,
+          style: GoogleFonts.robotoMono(
+            fontSize: 16,
+          ),
+        ),
+      ],
+    );
+  }
+
+  SocialButton(String socialName, String link, String imageLink) {
+    return Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(10),
+        onTap: () async {
+          await launchUrl(Uri.parse(link));
+        },
+        child: Container(
+          height: 80,
+          decoration: BoxDecoration(
+              color: Colors.grey, borderRadius: BorderRadius.circular(20)),
+          child: Center(
+            heightFactor: 1,
+            widthFactor: 1,
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                  child: CircleAvatar(
+                    radius: 30,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(50),
+                        image: DecorationImage(
+                          image: NetworkImage(imageLink),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                          child: Text(
-                            "Github",
-                            style: GoogleFonts.robotoMono(
-                              color: Colors.white,
-                              fontSize: 22,
-                            ),
-                          ),
-                        ),
-                      ],
+                      ),
                     ),
                   ),
                 ),
-              ),
-            )
-          ],
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                  child: Text(
+                    socialName,
+                    style: GoogleFonts.robotoMono(
+                      color: Colors.white,
+                      fontSize: 22,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
         ),
       ),
     );
