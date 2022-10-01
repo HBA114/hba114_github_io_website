@@ -75,7 +75,7 @@ class _AboutState extends State<About> {
 
   Future<void> GetTexts() async {
     final String response =
-        await rootBundle.loadString("../lib/language/page_texts.json");
+        await rootBundle.loadString("assets/language/page_texts.json");
     final data = jsonDecode(response);
     setState(() {
       header = data["AboutTexts"]["Header"][lang];

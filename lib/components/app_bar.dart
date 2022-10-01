@@ -118,7 +118,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
 
   Future<void> GetButtonNames() async {
     final response =
-        await rootBundle.loadString("../lib/language/buttons.json");
+        await rootBundle.loadString("assets/language/buttons.json");
     final data = jsonDecode(response);
     setState(() {
       home = data["Buttons"]["Home"][lang];

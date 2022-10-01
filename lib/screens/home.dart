@@ -75,7 +75,7 @@ class _HomeState extends State<Home> {
   }
 
   Future<void> ReadHomeTexts() async {
-    response = await rootBundle.loadString("../lib/language/page_texts.json");
+    response = await rootBundle.loadString("assets/language/page_texts.json");
     // print(response);
     data = jsonDecode(response);
     hello = data["HomeTexts"]["Hello"][lang];

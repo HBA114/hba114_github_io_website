@@ -149,7 +149,7 @@ class _SocialsState extends State<Socials> {
 
   Future<void> GetTexts() async {
     final String response =
-        await rootBundle.loadString("../lib/language/page_texts.json");
+        await rootBundle.loadString("assets/language/page_texts.json");
     // print(response);
     final data = jsonDecode(response);
     header = data["SocialsTexts"]["Header"][lang];
