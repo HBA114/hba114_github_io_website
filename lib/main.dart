@@ -9,6 +9,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
   MyApp({super.key});
+  String lang = "en";
 
   @override
   Widget build(BuildContext context) {
@@ -16,9 +17,9 @@ class MyApp extends StatelessWidget {
       title: 'Hasan Basri Ayhaner',
       theme: ThemeData.dark(),
       routes: {
-        Home.routeName: (BuildContext context) => new Home(),
-        About.routeName: (BuildContext context) => new About(),
-        Socials.routeName: (BuildContext context) => new Socials()
+        Home.routeName: (BuildContext context) => Home(lang),
+        About.routeName: (BuildContext context) => About(lang),
+        Socials.routeName: (BuildContext context) => Socials(lang)
       },
       initialRoute: Home.routeName,
     );

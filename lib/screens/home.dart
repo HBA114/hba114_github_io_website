@@ -8,10 +8,12 @@ import 'package:hba114_github_io_website/components/background.dart';
 
 class Home extends StatefulWidget {
   static String routeName = "/home";
-  const Home({super.key});
+  String lang;
+  Home(this.lang, {super.key});
 
   @override
-  State<Home> createState() => _HomeState();
+  // ignore: no_logic_in_create_state
+  State<Home> createState() => _HomeState(lang);
 }
 
 class _HomeState extends State<Home> {
@@ -20,6 +22,8 @@ class _HomeState extends State<Home> {
   String hello = "";
   String home = "";
   String lang = "en";
+
+  _HomeState(this.lang);
   @override
   void initState() {
     super.initState();

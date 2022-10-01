@@ -8,16 +8,19 @@ import 'package:hba114_github_io_website/components/background.dart';
 
 class About extends StatefulWidget {
   static String routeName = "/about";
-  const About({super.key});
+  String lang;
+  About(this.lang, {super.key});
 
   @override
-  State<About> createState() => _AboutState();
+  State<About> createState() => _AboutState(lang);
 }
 
 class _AboutState extends State<About> {
   String header = "";
   String paragraph = "";
   String lang = "en";
+
+  _AboutState(this.lang);
 
   @override
   void initState() {

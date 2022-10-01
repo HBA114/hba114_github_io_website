@@ -10,10 +10,11 @@ import 'package:url_launcher/url_launcher.dart';
 
 class Socials extends StatefulWidget {
   static String routeName = "/socials";
-  const Socials({super.key});
+  String lang;
+  Socials(this.lang, {super.key});
 
   @override
-  State<Socials> createState() => _SocialsState();
+  State<Socials> createState() => _SocialsState(lang);
 }
 
 class _SocialsState extends State<Socials> {
@@ -21,6 +22,8 @@ class _SocialsState extends State<Socials> {
   String githubInfo = "";
   String linkedInInfo = "";
   String lang = "en";
+
+  _SocialsState(this.lang);
 
   @override
   void initState() {
