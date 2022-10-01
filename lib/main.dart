@@ -11,6 +11,9 @@ class MyApp extends StatelessWidget {
   MyApp({super.key});
   String lang = "en";
 
+  // ignore: todo
+  // TODO: Use notifier for language setting and create button for language swapping.
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
