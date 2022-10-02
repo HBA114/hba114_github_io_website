@@ -39,39 +39,41 @@ class _AboutState extends State<About> {
     return Scaffold(
       body: Background(
         size,
-        Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            CustomAppBar(notifier),
-            const SizedBox(height: 20),
-            //
-            // ! Hello Text
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 60),
-              child: Text(
-                header,
-                style: GoogleFonts.robotoMono(
-                  fontSize: 20,
-                  color: Colors.white,
+        SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              CustomAppBar(notifier),
+              const SizedBox(height: 20),
+              //
+              // ! Hello Text
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 60),
+                child: Text(
+                  header,
+                  style: GoogleFonts.robotoMono(
+                    fontSize: 20,
+                    color: Colors.white,
+                  ),
                 ),
               ),
-            ),
 
-            ///
-            const SizedBox(height: 20),
-            // ! HomeText
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 60),
-              child: Text(
-                paragraph,
-                style: GoogleFonts.robotoMono(
-                  fontSize: 18,
-                  color: Colors.white,
+              ///
+              const SizedBox(height: 20),
+              // ! HomeText
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 60),
+                child: Text(
+                  paragraph,
+                  style: GoogleFonts.robotoMono(
+                    fontSize: 18,
+                    color: Colors.white,
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

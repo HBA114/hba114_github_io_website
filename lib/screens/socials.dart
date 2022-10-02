@@ -42,40 +42,42 @@ class _SocialsState extends State<Socials> {
     return Scaffold(
       body: Background(
         size,
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            CustomAppBar(notifier),
-            const SizedBox(height: 20),
-            //
-            // ! Hello Text
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 60),
-              child: Text(
-                header,
-                //! use google fonts for better look
-                style: GoogleFonts.robotoMono(
-                  color: Colors.white,
-                  fontSize: 20,
+        SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              CustomAppBar(notifier),
+              const SizedBox(height: 20),
+              //
+              // ! Hello Text
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 60),
+                child: Text(
+                  header,
+                  //! use google fonts for better look
+                  style: GoogleFonts.robotoMono(
+                    color: Colors.white,
+                    fontSize: 20,
+                  ),
                 ),
               ),
-            ),
 
-            //! Button for social
-            SocialButtonWithInfo(
-              "Github",
-              "https://github.com/HBA114",
-              "https://avatars.githubusercontent.com/u/55455410?v=4",
-              githubInfo,
-            ),
+              //! Button for social
+              SocialButtonWithInfo(
+                "Github",
+                "https://github.com/HBA114",
+                "https://avatars.githubusercontent.com/u/55455410?v=4",
+                githubInfo,
+              ),
 
-            SocialButtonWithInfo(
-              "LinkedIn",
-              "https://www.linkedin.com/in/hasan-basri-ayhaner-9b2452228/",
-              "https://media-exp1.licdn.com/dms/image/C4D03AQERq6NQ_vMeWw/profile-displayphoto-shrink_800_800/0/1651933832695?e=1669852800&v=beta&t=JfqlHrFTOME_QgPe_owUEYzC6t4mBr0iY6GiPa5krf0",
-              linkedInInfo,
-            ),
-          ],
+              SocialButtonWithInfo(
+                "LinkedIn",
+                "https://www.linkedin.com/in/hasan-basri-ayhaner-9b2452228/",
+                "https://media-exp1.licdn.com/dms/image/C4D03AQERq6NQ_vMeWw/profile-displayphoto-shrink_800_800/0/1651933832695?e=1669852800&v=beta&t=JfqlHrFTOME_QgPe_owUEYzC6t4mBr0iY6GiPa5krf0",
+                linkedInInfo,
+              ),
+            ],
+          ),
         ),
       ),
     );
