@@ -7,24 +7,34 @@ void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   String lang = "en";
 
-  // ignore: todo
-  // TODO: Use notifier for language setting and create button for language swapping.
+  final ValueNotifier<String> notifier = ValueNotifier("en");
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Hasan Basri Ayhaner',
-      theme: ThemeData.dark(),
-      routes: {
-        Home.routeName: (BuildContext context) => Home(lang),
-        About.routeName: (BuildContext context) => About(lang),
-        Socials.routeName: (BuildContext context) => Socials(lang)
+    return ValueListenableBuilder(
+      valueListenable: notifier,
+      builder: (_, mode, __) {
+        return MaterialApp(
+          title: 'Hasan Basri Ayhaner',
+          theme: ThemeData.dark(),
+          routes: {
+            Home.routeName: (BuildContext context) => Home(notifier),
+            About.routeName: (BuildContext context) => About(notifier),
+            Socials.routeName: (BuildContext context) => Socials(notifier)
+          },
+          initialRoute: Home.routeName,
+        );
       },
-      initialRoute: Home.routeName,
     );
   }
 }

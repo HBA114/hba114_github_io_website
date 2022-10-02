@@ -9,10 +9,11 @@ import 'package:hba114_github_io_website/screens/home.dart';
 import 'package:hba114_github_io_website/screens/socials.dart';
 
 class CustomAppBar extends StatefulWidget {
-  const CustomAppBar({super.key});
+  late final ValueNotifier<String> notifier;
+  CustomAppBar(this.notifier, {super.key});
 
   @override
-  State<CustomAppBar> createState() => _CustomAppBarState();
+  State<CustomAppBar> createState() => _CustomAppBarState(notifier);
 }
 
 class _CustomAppBarState extends State<CustomAppBar> {
@@ -20,6 +21,9 @@ class _CustomAppBarState extends State<CustomAppBar> {
   String about = "";
   String socials = "";
   String lang = "en";
+  late final ValueNotifier<String> notifier;
+
+  _CustomAppBarState(this.notifier);
 
   @override
   void initState() {
@@ -111,6 +115,22 @@ class _CustomAppBarState extends State<CustomAppBar> {
             ),
           ),
           const SizedBox(width: 10),
+          Spacer(),
+          TextButton(
+            onPressed: () {
+              setState(() {
+                notifier.value = notifier.value == "tr" ? "en" : "tr";
+                GetButtonNames();
+              });
+            },
+            child: Text(
+              notifier.value == "tr" ? "En" : "TR",
+              style: GoogleFonts.robotoMono(
+                  fontSize: 19,
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold),
+            ),
+          ),
         ],
       ),
     );
@@ -121,9 +141,9 @@ class _CustomAppBarState extends State<CustomAppBar> {
         await rootBundle.loadString("assets/language/buttons.json");
     final data = jsonDecode(response);
     setState(() {
-      home = data["Buttons"]["Home"][lang];
-      about = data["Buttons"]["About"][lang];
-      socials = data["Buttons"]["Socials"][lang];
+      home = data["Buttons"]["Home"][notifier.value];
+      about = data["Buttons"]["About"][notifier.value];
+      socials = data["Buttons"]["Socials"][notifier.value];
     });
   }
 }

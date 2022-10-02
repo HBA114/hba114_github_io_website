@@ -10,11 +10,11 @@ import 'package:url_launcher/url_launcher.dart';
 
 class Socials extends StatefulWidget {
   static String routeName = "/socials";
-  String lang;
-  Socials(this.lang, {super.key});
+  late final ValueNotifier<String> notifier;
+  Socials(this.notifier, {super.key});
 
   @override
-  State<Socials> createState() => _SocialsState(lang);
+  State<Socials> createState() => _SocialsState(notifier);
 }
 
 class _SocialsState extends State<Socials> {
@@ -22,8 +22,8 @@ class _SocialsState extends State<Socials> {
   String githubInfo = "";
   String linkedInInfo = "";
   String lang = "en";
-
-  _SocialsState(this.lang);
+  late final ValueNotifier<String> notifier;
+  _SocialsState(this.notifier);
 
   @override
   void initState() {
@@ -34,13 +34,18 @@ class _SocialsState extends State<Socials> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+
+    notifier.addListener(() async {
+      await GetTexts();
+    });
+
     return Scaffold(
       body: Background(
         size,
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            const CustomAppBar(),
+            CustomAppBar(notifier),
             const SizedBox(height: 20),
             //
             // ! Hello Text
@@ -152,9 +157,9 @@ class _SocialsState extends State<Socials> {
         await rootBundle.loadString("assets/language/page_texts.json");
     // print(response);
     final data = jsonDecode(response);
-    header = data["SocialsTexts"]["Header"][lang];
-    githubInfo = data["SocialsTexts"]["GithubText"][lang];
-    linkedInInfo = data["SocialsTexts"]["LinkedInText"][lang];
+    header = data["SocialsTexts"]["Header"][notifier.value];
+    githubInfo = data["SocialsTexts"]["GithubText"][notifier.value];
+    linkedInInfo = data["SocialsTexts"]["LinkedInText"][notifier.value];
     setState(() {});
   }
 }

@@ -8,19 +8,19 @@ import 'package:hba114_github_io_website/components/background.dart';
 
 class About extends StatefulWidget {
   static String routeName = "/about";
-  String lang;
-  About(this.lang, {super.key});
+  late final ValueNotifier<String> notifier;
+  About(this.notifier, {super.key});
 
   @override
-  State<About> createState() => _AboutState(lang);
+  State<About> createState() => _AboutState(notifier);
 }
 
 class _AboutState extends State<About> {
   String header = "";
   String paragraph = "";
   String lang = "en";
-
-  _AboutState(this.lang);
+  late final ValueNotifier<String> notifier;
+  _AboutState(this.notifier);
 
   @override
   void initState() {
@@ -32,6 +32,10 @@ class _AboutState extends State<About> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 
+    notifier.addListener(() async {
+      await GetTexts();
+    });
+
     return Scaffold(
       body: Background(
         size,
@@ -39,7 +43,7 @@ class _AboutState extends State<About> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            CustomAppBar(),
+            CustomAppBar(notifier),
             const SizedBox(height: 20),
             //
             // ! Hello Text
@@ -78,8 +82,8 @@ class _AboutState extends State<About> {
         await rootBundle.loadString("assets/language/page_texts.json");
     final data = jsonDecode(response);
     setState(() {
-      header = data["AboutTexts"]["Header"][lang];
-      paragraph = data["AboutTexts"]["Paragraph"][lang];
+      header = data["AboutTexts"]["Header"][notifier.value];
+      paragraph = data["AboutTexts"]["Paragraph"][notifier.value];
     });
   }
 }
