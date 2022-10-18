@@ -50,7 +50,7 @@ class _AboutState extends State<About> {
               // ! Hello Text
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 60),
-                child: Text(
+                child: SelectableText(
                   header,
                   style: GoogleFonts.robotoMono(
                     fontSize: 20,
@@ -64,7 +64,7 @@ class _AboutState extends State<About> {
               // ! HomeText
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 60),
-                child: Text(
+                child: SelectableText(
                   paragraph,
                   style: GoogleFonts.robotoMono(
                     fontSize: 18,

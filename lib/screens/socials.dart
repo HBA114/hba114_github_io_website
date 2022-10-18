@@ -51,8 +51,8 @@ class _SocialsState extends State<Socials> {
               //
               // ! Hello Text
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 60),
-                child: Text(
+                padding: const EdgeInsets.symmetric(horizontal: 60),
+                child: SelectableText(
                   header,
                   //! use google fonts for better look
                   style: GoogleFonts.robotoMono(
@@ -94,7 +94,7 @@ class _SocialsState extends State<Socials> {
           link,
           imageLink,
         ),
-        Text(
+        SelectableText(
           infoText,
           style: GoogleFonts.robotoMono(
             fontSize: 16,
