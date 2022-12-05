@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hba114_github_io_website/components/app_bar.dart';
 import 'package:hba114_github_io_website/components/background.dart';
+import 'package:hba114_github_io_website/components/custom_drawer.dart';
 
 class About extends StatefulWidget {
   static String routeName = "/about";
@@ -37,6 +38,7 @@ class _AboutState extends State<About> {
     });
 
     return Scaffold(
+      endDrawer: CustomDrawer(notifier),
       body: Background(
         size,
         SingleChildScrollView(

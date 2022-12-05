@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hba114_github_io_website/components/app_bar.dart';
 import 'package:hba114_github_io_website/components/background.dart';
+import 'package:hba114_github_io_website/components/custom_drawer.dart';
 
 class Home extends StatefulWidget {
   static String routeName = "/home";
@@ -28,16 +29,17 @@ class _HomeState extends State<Home> {
   @override
   void initState() {
     super.initState();
-    ReadHomeTexts();
+    readHomeTexts();
   }
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     notifier.addListener(() async {
-      await ReadHomeTexts();
+      await readHomeTexts();
     });
     return Scaffold(
+      endDrawer: CustomDrawer(notifier),
       body: Background(
         size,
         SingleChildScrollView(
@@ -80,7 +82,7 @@ class _HomeState extends State<Home> {
     );
   }
 
-  Future<void> ReadHomeTexts() async {
+  Future<void> readHomeTexts() async {
     response = await rootBundle.loadString("assets/language/page_texts.json");
     // print(response);
     data = jsonDecode(response);
