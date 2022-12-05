@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hba114_github_io_website/components/app_bar.dart';
 import 'package:hba114_github_io_website/components/background.dart';
+import 'package:hba114_github_io_website/components/custom_drawer.dart';
 
 import 'package:url_launcher/url_launcher.dart';
 
@@ -40,6 +41,7 @@ class _SocialsState extends State<Socials> {
     });
 
     return Scaffold(
+      endDrawer: CustomDrawer(notifier),
       body: Background(
         size,
         SingleChildScrollView(
@@ -73,7 +75,7 @@ class _SocialsState extends State<Socials> {
               SocialButtonWithInfo(
                 "LinkedIn",
                 "https://www.linkedin.com/in/hasan-basri-ayhaner-9b2452228/",
-                "https://media-exp1.licdn.com/dms/image/C4D03AQERq6NQ_vMeWw/profile-displayphoto-shrink_800_800/0/1651933832695?e=1669852800&v=beta&t=JfqlHrFTOME_QgPe_owUEYzC6t4mBr0iY6GiPa5krf0",
+                "https://avatars.githubusercontent.com/u/55455410?v=4",
                 linkedInInfo,
               ),
             ],
@@ -85,14 +87,19 @@ class _SocialsState extends State<Socials> {
 
   SocialButtonWithInfo(
       String socialName, String link, String imageLink, String infoText) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: <Widget>[
-        SocialButton(
-          socialName,
-          link,
-          imageLink,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            SocialButton(
+              socialName,
+              link,
+              imageLink,
+            ),
+          ],
         ),
         SelectableText(
           infoText,
