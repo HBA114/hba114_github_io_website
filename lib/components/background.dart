@@ -11,13 +11,13 @@ class Background extends StatelessWidget {
     return Container(
       height: size.height,
       width: size.width,
-      decoration: const BoxDecoration(
-        image: DecorationImage(
-          opacity: 0.18,
-          image: AssetImage("assets/images/matrix.jpg"),
-          fit: BoxFit.fill,
-        ),
-      ),
+      // decoration: const BoxDecoration(
+      //   image: DecorationImage(
+      //     opacity: 0.05,
+      //     image: AssetImage("assets/images/matrix.jpg"),
+      //     fit: BoxFit.fill,
+      //   ),
+      // ),
       child: child,
     );
   }
