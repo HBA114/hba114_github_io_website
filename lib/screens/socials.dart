@@ -35,7 +35,7 @@ class _SocialsState extends State<Socials> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-
+    bool isMobile = size.width <= 650;
     notifier.addListener(() async {
       await GetTexts();
     });
@@ -59,7 +59,7 @@ class _SocialsState extends State<Socials> {
                   //! use google fonts for better look
                   style: GoogleFonts.robotoMono(
                     color: Colors.white,
-                    fontSize: 20,
+                    fontSize: isMobile ? 16 : 20,
                   ),
                 ),
               ),
@@ -68,15 +68,17 @@ class _SocialsState extends State<Socials> {
               SocialButtonWithInfo(
                 "Github",
                 "https://github.com/HBA114",
-                "https://avatars.githubusercontent.com/u/55455410?v=4",
+                "https://raw.githubusercontent.com/HBA114/hba114.github.io/main/assets/assets/images/github.png",
                 githubInfo,
+                isMobile,
               ),
 
               SocialButtonWithInfo(
                 "LinkedIn",
                 "https://www.linkedin.com/in/hasan-basri-ayhaner-9b2452228/",
-                "https://avatars.githubusercontent.com/u/55455410?v=4",
+                "https://raw.githubusercontent.com/HBA114/hba114.github.io/main/assets/assets/images/linkedin.png",
                 linkedInInfo,
+                isMobile,
               ),
             ],
           ),
@@ -85,8 +87,8 @@ class _SocialsState extends State<Socials> {
     );
   }
 
-  SocialButtonWithInfo(
-      String socialName, String link, String imageLink, String infoText) {
+  SocialButtonWithInfo(String socialName, String link, String imageLink,
+      String infoText, bool isMobile) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -95,23 +97,24 @@ class _SocialsState extends State<Socials> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             SocialButton(
-              socialName,
-              link,
-              imageLink,
-            ),
+                socialName, link, imageLink, NetworkImage(imageLink), isMobile),
           ],
         ),
-        SelectableText(
-          infoText,
-          style: GoogleFonts.robotoMono(
-            fontSize: 16,
+        Padding(
+          padding: const EdgeInsets.only(left: 25),
+          child: SelectableText(
+            infoText,
+            style: GoogleFonts.robotoMono(
+              fontSize: isMobile ? 12 : 16,
+            ),
           ),
         ),
       ],
     );
   }
 
-  SocialButton(String socialName, String link, String imageLink) {
+  SocialButton(String socialName, String link, String imageLink,
+      ImageProvider image, bool isMobile) {
     return Padding(
       padding: const EdgeInsets.all(10.0),
       child: InkWell(
@@ -137,7 +140,7 @@ class _SocialsState extends State<Socials> {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(50),
                         image: DecorationImage(
-                          image: NetworkImage(imageLink),
+                          image: image,
                         ),
                       ),
                     ),
@@ -149,7 +152,7 @@ class _SocialsState extends State<Socials> {
                     socialName,
                     style: GoogleFonts.robotoMono(
                       color: Colors.white,
-                      fontSize: 22,
+                      fontSize: isMobile ? 18 : 22,
                     ),
                   ),
                 ),
