@@ -127,9 +127,9 @@ class _CustomAppBarState extends State<CustomAppBar> {
                     });
                   },
                   child: Text(
-                    notifier.value == "tr" ? "En" : "TR",
+                    notifier.value == "tr" ? "EN" : "TR",
                     style: GoogleFonts.robotoMono(
-                        fontSize: 19,
+                        fontSize: 20,
                         color: Colors.black,
                         fontWeight: FontWeight.bold),
                   ),
@@ -154,7 +154,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
                 Text(
                   "Hasan Basri Ayhaner",
                   style: GoogleFonts.robotoMono(
-                    fontSize: 20,
+                    fontSize: 18,
                     fontWeight: FontWeight.bold,
                     color: const Color.fromARGB(255, 0, 0, 0),
                   ),

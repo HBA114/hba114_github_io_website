@@ -37,6 +37,10 @@ class _CustomDrawerState extends State<CustomDrawer> {
     return Drawer(
       child: Column(
         children: <Widget>[
+          Expanded(
+            flex: 1,
+            child: Container(),
+          ),
           TextButton(
             onPressed: () {
               Navigator.pushNamed(context, Home.routeName);
@@ -87,6 +91,10 @@ class _CustomDrawerState extends State<CustomDrawer> {
           const SizedBox(
             height: 10,
           ),
+          Expanded(
+            flex: 23,
+            child: Container(),
+          ),
           TextButton(
             onPressed: () {
               setState(() {
@@ -95,12 +103,16 @@ class _CustomDrawerState extends State<CustomDrawer> {
               });
             },
             child: Text(
-              notifier.value == "tr" ? "En" : "TR",
+              notifier.value == "tr" ? "EN" : "TR",
               style: GoogleFonts.robotoMono(
                   fontSize: 19,
                   color: Colors.white,
                   fontWeight: FontWeight.bold),
             ),
+          ),
+          Expanded(
+            flex: 1,
+            child: Container(),
           ),
         ],
       ),

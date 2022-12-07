@@ -32,7 +32,7 @@ class _AboutState extends State<About> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-
+    bool isMobile = size.width <= 650;
     notifier.addListener(() async {
       await GetTexts();
     });
@@ -55,7 +55,7 @@ class _AboutState extends State<About> {
                 child: SelectableText(
                   header,
                   style: GoogleFonts.robotoMono(
-                    fontSize: 20,
+                    fontSize: isMobile ? 16 : 20,
                     color: Colors.white,
                   ),
                 ),
@@ -69,7 +69,7 @@ class _AboutState extends State<About> {
                 child: SelectableText(
                   paragraph,
                   style: GoogleFonts.robotoMono(
-                    fontSize: 18,
+                    fontSize: isMobile ? 14 : 18,
                     color: Colors.white,
                   ),
                 ),
