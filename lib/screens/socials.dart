@@ -68,8 +68,7 @@ class _SocialsState extends State<Socials> {
               SocialButtonWithInfo(
                 "Github",
                 "https://github.com/HBA114",
-                // "https://avatars.githubusercontent.com/u/55455410?v=4",
-                "assets/images/github.png",
+                "https://raw.githubusercontent.com/HBA114/hba114.github.io/main/assets/assets/images/github.png",
                 githubInfo,
                 isMobile,
               ),
@@ -77,8 +76,7 @@ class _SocialsState extends State<Socials> {
               SocialButtonWithInfo(
                 "LinkedIn",
                 "https://www.linkedin.com/in/hasan-basri-ayhaner-9b2452228/",
-                // "https://avatars.githubusercontent.com/u/55455410?v=4",
-                "assets/images/linkedin.png",
+                "https://raw.githubusercontent.com/HBA114/hba114.github.io/main/assets/assets/images/linkedin.png",
                 linkedInInfo,
                 isMobile,
               ),
