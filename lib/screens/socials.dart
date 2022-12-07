@@ -53,7 +53,7 @@ class _SocialsState extends State<Socials> {
               //
               // ! Hello Text
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 60),
+                padding: EdgeInsets.symmetric(horizontal: isMobile ? 30 : 60),
                 child: SelectableText(
                   header,
                   //! use google fonts for better look

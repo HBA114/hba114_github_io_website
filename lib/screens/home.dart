@@ -54,7 +54,7 @@ class _HomeState extends State<Home> {
               //
               // ! Hello Text
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 60),
+                padding: EdgeInsets.symmetric(horizontal: isMobile ? 30 : 60),
                 child: SelectableText(
                   hello,
                   style: GoogleFonts.robotoMono(
@@ -67,7 +67,7 @@ class _HomeState extends State<Home> {
               //
               // ! HomeText
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 60),
+                padding: EdgeInsets.symmetric(horizontal: isMobile ? 30 : 60),
                 child: SelectableText(
                   home,
                   style: GoogleFonts.robotoMono(
