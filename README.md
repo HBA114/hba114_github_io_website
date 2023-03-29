@@ -1,16 +1,14 @@
 # hba114_github_io_website
 
-A new Flutter project.
+A Flutter web project for sharing personal info via personal website.
 
-## Getting Started
+## Requirements
+- Flutter SDK
+- Chrome Web Browser
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# How To Run
+ You can run project with command below:
+ ```
+ flutter run
+ ```
+ 
