@@ -75,7 +75,7 @@ class _SocialsState extends State<Socials> {
 
               SocialButtonWithInfo(
                 "LinkedIn",
-                "https://www.linkedin.com/in/hasan-basri-ayhaner-9b2452228/",
+                "https://www.linkedin.com/in/hasan-basri-ayhaner-hba114/",
                 "https://raw.githubusercontent.com/HBA114/hba114.github.io/main/assets/assets/images/linkedin.png",
                 linkedInInfo,
                 isMobile,
