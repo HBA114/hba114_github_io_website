@@ -3,16 +3,16 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:hba114_github_io_website/components/route_animations.dart';
 import 'package:hba114_github_io_website/screens/about.dart';
 import 'package:hba114_github_io_website/screens/home.dart';
 import 'package:hba114_github_io_website/screens/socials.dart';
 
 class CustomAppBar extends StatefulWidget {
-  late final ValueNotifier<String> notifier;
-  CustomAppBar(this.notifier, {super.key});
+  final ValueNotifier<String> notifier;
+  const CustomAppBar(this.notifier, {super.key});
 
   @override
+  // ignore: no_logic_in_create_state
   State<CustomAppBar> createState() => _CustomAppBarState(notifier);
 }
 
@@ -86,7 +86,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
                 const SizedBox(width: 10),
                 TextButton(
                   onPressed: () {
-                    print("About");
+                    // print("About");
                     Navigator.pushReplacementNamed(context, About.routeName);
                     // Navigator.of(context).pushReplacement(new RouteAboutAnimation());
                   },
@@ -104,7 +104,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
                 //
                 TextButton(
                   onPressed: () {
-                    print("Socials");
+                    // print("Socials");
                     Navigator.pushReplacementNamed(context, Socials.routeName);
                     // Navigator.pushReplacement(context, RouteSocialsAnimation());
                   },

@@ -11,10 +11,11 @@ import 'package:url_launcher/url_launcher.dart';
 
 class Socials extends StatefulWidget {
   static String routeName = "/socials";
-  late final ValueNotifier<String> notifier;
-  Socials(this.notifier, {super.key});
+  final ValueNotifier<String> notifier;
+  const Socials(this.notifier, {super.key});
 
   @override
+  // ignore: no_logic_in_create_state
   State<Socials> createState() => _SocialsState(notifier);
 }
 
@@ -29,7 +30,7 @@ class _SocialsState extends State<Socials> {
   @override
   void initState() {
     super.initState();
-    GetTexts();
+    getTexts();
   }
 
   @override
@@ -37,7 +38,7 @@ class _SocialsState extends State<Socials> {
     Size size = MediaQuery.of(context).size;
     bool isMobile = size.width <= 650;
     notifier.addListener(() async {
-      await GetTexts();
+      await getTexts();
     });
 
     return Scaffold(
@@ -65,7 +66,7 @@ class _SocialsState extends State<Socials> {
               ),
 
               //! Button for social
-              SocialButtonWithInfo(
+              socialButtonWithInfo(
                 "Github",
                 "https://github.com/HBA114",
                 "https://raw.githubusercontent.com/HBA114/hba114.github.io/main/assets/assets/images/github.png",
@@ -73,7 +74,7 @@ class _SocialsState extends State<Socials> {
                 isMobile,
               ),
 
-              SocialButtonWithInfo(
+              socialButtonWithInfo(
                 "LinkedIn",
                 "https://www.linkedin.com/in/hasan-basri-ayhaner-hba114/",
                 "https://raw.githubusercontent.com/HBA114/hba114.github.io/main/assets/assets/images/linkedin.png",
@@ -87,7 +88,7 @@ class _SocialsState extends State<Socials> {
     );
   }
 
-  SocialButtonWithInfo(String socialName, String link, String imageLink,
+  socialButtonWithInfo(String socialName, String link, String imageLink,
       String infoText, bool isMobile) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -96,7 +97,7 @@ class _SocialsState extends State<Socials> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            SocialButton(
+            socialButton(
                 socialName, link, imageLink, NetworkImage(imageLink), isMobile),
           ],
         ),
@@ -113,7 +114,7 @@ class _SocialsState extends State<Socials> {
     );
   }
 
-  SocialButton(String socialName, String link, String imageLink,
+  socialButton(String socialName, String link, String imageLink,
       ImageProvider image, bool isMobile) {
     return Padding(
       padding: const EdgeInsets.all(10.0),
@@ -164,10 +165,9 @@ class _SocialsState extends State<Socials> {
     );
   }
 
-  Future<void> GetTexts() async {
+  Future<void> getTexts() async {
     final String response =
         await rootBundle.loadString("assets/language/page_texts.json");
-    // print(response);
     final data = jsonDecode(response);
     header = data["SocialsTexts"]["Header"][notifier.value];
     githubInfo = data["SocialsTexts"]["GithubText"][notifier.value];

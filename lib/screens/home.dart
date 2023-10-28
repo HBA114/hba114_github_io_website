@@ -9,8 +9,8 @@ import 'package:hba114_github_io_website/components/custom_drawer.dart';
 
 class Home extends StatefulWidget {
   static String routeName = "/home";
-  late final ValueNotifier<String> notifier;
-  Home(this.notifier, {super.key});
+  final ValueNotifier<String> notifier;
+  const Home(this.notifier, {super.key});
 
   @override
   // ignore: no_logic_in_create_state

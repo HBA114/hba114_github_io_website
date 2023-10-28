@@ -1,23 +1,16 @@
 import 'package:flutter/material.dart';
 
 class Background extends StatelessWidget {
-  late Size size;
-  late Widget child;
+  final Size size;
+  final Widget child;
 
-  Background(this.size, this.child);
+  const Background(this.size, this.child, {super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: size.height,
       width: size.width,
-      // decoration: const BoxDecoration(
-      //   image: DecorationImage(
-      //     opacity: 0.05,
-      //     image: AssetImage("assets/images/matrix.jpg"),
-      //     fit: BoxFit.fill,
-      //   ),
-      // ),
       child: child,
     );
   }

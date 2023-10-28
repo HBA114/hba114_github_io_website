@@ -9,10 +9,11 @@ import 'package:hba114_github_io_website/components/custom_drawer.dart';
 
 class About extends StatefulWidget {
   static String routeName = "/about";
-  late final ValueNotifier<String> notifier;
-  About(this.notifier, {super.key});
+  final ValueNotifier<String> notifier;
+  const About(this.notifier, {super.key});
 
   @override
+  // ignore: no_logic_in_create_state
   State<About> createState() => _AboutState(notifier);
 }
 
@@ -26,7 +27,7 @@ class _AboutState extends State<About> {
   @override
   void initState() {
     super.initState();
-    GetTexts();
+    getTexts();
   }
 
   @override
@@ -34,7 +35,7 @@ class _AboutState extends State<About> {
     Size size = MediaQuery.of(context).size;
     bool isMobile = size.width <= 650;
     notifier.addListener(() async {
-      await GetTexts();
+      await getTexts();
     });
 
     return Scaffold(
@@ -81,7 +82,7 @@ class _AboutState extends State<About> {
     );
   }
 
-  Future<void> GetTexts() async {
+  Future<void> getTexts() async {
     final String response =
         await rootBundle.loadString("assets/language/page_texts.json");
     final data = jsonDecode(response);

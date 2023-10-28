@@ -59,7 +59,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
           ),
           TextButton(
             onPressed: () {
-              print("About");
+              // print("About");
               Navigator.pushNamed(context, About.routeName);
             },
             child: Text(
@@ -76,7 +76,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
           ),
           TextButton(
             onPressed: () {
-              print("Socials");
+              // print("Socials");
               Navigator.pushReplacementNamed(context, Socials.routeName);
             },
             child: Text(

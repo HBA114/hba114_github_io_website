@@ -5,8 +5,8 @@
             "en": "Hello, I'm Hasan Basri Ayhaner."
         },
         "Home": {
-            "tr": "  Konya Teknik Üniversitesi Bilgisayar Mühendisliği 4. sınıf öğrencisiyim. ASP.NET Core teknolojisini kullanarak, katmanlı mimari yaklaşımı ile projeler geliştiriyorum. Yapay Zeka ve backend konularına ilgim var. Aynı zamanda kendimi Java Spring Boot üzerinde geliştirmeye devam ediyorum. BTK Akademi, Udemy, YouTube vb. platformlar aracılığı ile yeni teknolojileri sürekli takip ediyor, daha önce öğrendiklerimi geliştiriyorum. Daha fazla bilgi için Hakkımda sayfasına, projelerimi veya beni takip etmek için Sosyal Medya sayfasını inceleyebilirsiniz.",
-            "en": "  I'm student at Konya Technical University 4th grade.I'm developing ASP.NET Core backend applications using Layered Architecture. I'm interested with Artificial Intelligence and Backend projects. Also i'm learning Java Spring Boot applications. I'm using BTK Academy, Udemy, YouTube platforms etc. for learning and tracking technologies. Check out About page for more information or Socials page for more details about projects and my social media."
+            "tr": "  NextLua şirketinde Back-end geliştiriciyim. ASP.NET Core teknolojisini kullanarak, katmanlı mimari yaklaşımı ile projeler geliştiriyorum. Yapay Zeka ve Back-end konularına ilgim var. BTK Akademi, Udemy, YouTube vb. platformlar aracılığı ile yeni teknolojileri sürekli takip ediyor, daha önce öğrendiklerimi geliştiriyorum. Daha fazla bilgi için Hakkımda sayfasını, projelerimi veya beni takip etmek için Sosyal Medya sayfasını inceleyebilirsiniz.",
+            "en": "  I'm working at NextLua as a Back-end Developer. I'm developing ASP.NET Core Back-end applications using Layered Architecture. I'm interested with Artificial Intelligence and Back-end projects. I'm using BTK Academy, Udemy, YouTube platforms etc. for learning and tracking technologies. Check out About page for more information or Socials page for more details about projects and my social media."
         }
     },
     "AboutTexts": {
@@ -15,8 +15,8 @@
             "en": "About Me"
         },
         "Paragraph": {
-            "tr": "  Merhaba ben Hasan Basri Ayhaner. Bilgisayar Mihendisliği bölümü öğrencisiyim. Flutter ile Mobil, Masaüstü ve Web uygulamaları geliştiriyorum. İlk web uygulamamı flutter ile yazdım ve bu site de flutter ile yazıldı. Şu anda ASP.NET ve ReactJS teknolojilerini kullanarak bitirme projem üzerinde çalışıyorum. Yapay zeka entegrasyonu olan, Apriori algoritması gibi Birliktelik Kuralları tahmin algoritlamaları içeren bir e-ticaret sitesi geliştiriyorum. Aynı zamanda Python geliştiricisiyim ve Python en sevdiğim programlama dilidir.",
-            "en": "  Hi I'm Hasan Basri Ayhaner. I'm a Computer Engineering student. I am using Flutter for creating Android, Desktop and Web applications. I made my first web project with flutter and this web application is built with flutter too. Now i am working on graduation project with ASP.NET and ReactJS. I am developing an E-Commerce Web Application with Prediction algorithms such as Appriori algorithm from Association Rules. I'm also a Python developer and Python is my favorite programming language."
+            "tr": "  Merhaba ben Hasan Basri Ayhaner. Konya Teknik Üniversitesi Bilgisayar Mühendisliği bölümü mezunuyum. ASP.NET Back-end geliştiricisiyim. Ayrıca Flutter ile Mobil, Masaüstü ve Web uygulamaları geliştiriyorum. İlk web uygulamamı flutter ile yazdım ve bu site de flutter ile yazıldı. Hobi olarak C-C++ ve python programlama dilleri ile algoritmalar geliştiriyorum. En sevdiğim programlama dili ise C#.",
+            "en": "  Hi I'm Hasan Basri Ayhaner. I graduated from Konya Technical University Computer Engineering department. I'm an ASP.NET Back-end developer. I am using Flutter for creating Android, Desktop and Web applications. I made my first web project with flutter and this web application is built with flutter too. As a hobby I'm programming algorithms with C-C++ and python programming languages. My favorite programming language is C#."
         }
     },
     "SocialsTexts": {

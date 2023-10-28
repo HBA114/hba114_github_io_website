@@ -4,11 +4,11 @@ import 'package:hba114_github_io_website/screens/home.dart';
 import 'package:hba114_github_io_website/screens/socials.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
-  MyApp({super.key});
+  const MyApp({super.key});
 
   @override
   State<MyApp> createState() => _MyAppState();
